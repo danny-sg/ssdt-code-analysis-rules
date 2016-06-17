@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingStyleAndNameingRules.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{0B8BE2D7-6AAE-4602-98ED-93EFA68CD5D6}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CodingStyleAndNamingRules.TestDatabase", "CodingStyleAndNamingRules.TestDatabase\CodingStyleAndNamingRules.TestDatabase.sqlproj", "{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,18 +23,11 @@ Global
 		{C8748873-C351-478D-9FE4-188D77DD6663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8748873-C351-478D-9FE4-188D77DD6663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8748873-C351-478D-9FE4-188D77DD6663}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C8748873-C351-478D-9FE4-188D77DD6663} = {0B8BE2D7-6AAE-4602-98ED-93EFA68CD5D6}
-		{D096BD74-DDB9-4BDA-BE1F-0B7789F4BBFD} = {0B8BE2D7-6AAE-4602-98ED-93EFA68CD5D6}
 	EndGlobalSection
 EndGlobal
