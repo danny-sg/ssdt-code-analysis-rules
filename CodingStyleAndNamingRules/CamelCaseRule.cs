@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Microsoft.SqlServer.Dac.CodeAnalysis;
 using Microsoft.SqlServer.Dac.Model;
+using Microsoft.SqlServer.TransactSql.ScriptDom;
 
 namespace CodingStyleAndNamingRules
 {
@@ -12,7 +15,7 @@ namespace CodingStyleAndNamingRules
                             RuleScope = SqlRuleScope.Element)]
     public sealed class TableCamelCaseRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableCamelCaseRule";
+        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableCamelCaseRule.SG001";
         public const string RuleDisplayName = "SG.001";
         public const string Message = "Table {0} is not named as CamelCase";
 
