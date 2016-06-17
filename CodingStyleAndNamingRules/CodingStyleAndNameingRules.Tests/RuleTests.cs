@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.SqlServer.Dac.CodeAnalysis;
 using Microsoft.SqlServer.Dac.Model;
@@ -6,9 +7,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingStyleAndNameingRules.Tests
 {
-    public class AnalysisTestHelper
+    public abstract class RuleTests
     {
-        public static CodeAnalysisService CreateCodeAnalysisService(TSqlModel model, string ruleIdToRun)
+        protected CodeAnalysisService CreateCodeAnalysisService(TSqlModel model, string ruleIdToRun)
         {
             var factory = new CodeAnalysisServiceFactory();
 
@@ -29,6 +30,23 @@ namespace CodingStyleAndNameingRules.Tests
                     .Equals(ruleIdToRun, StringComparison.OrdinalIgnoreCase)),
                 $"Expected rule '{ruleIdToRun}' not found by the service");
             return service;
+        }
+
+        protected TSqlModel ModelFromSql(string sql)
+        {
+            var model = new TSqlModel(SqlServerVersion.Sql130, new TSqlModelOptions());
+
+            model.AddObjects(sql);
+
+            return model;
+        }
+
+        protected void OutputProblems(IReadOnlyCollection<SqlRuleProblem> problems)
+        {
+            foreach (var sqlRuleProblem in problems)
+            {
+                System.Diagnostics.Debug.Print(sqlRuleProblem.ErrorMessageString);
+            }
         }
     }
 }

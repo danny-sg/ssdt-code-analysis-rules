@@ -1,29 +1,34 @@
+using System.Linq;
 using CodingStyleAndNamingRules;
-using Microsoft.SqlServer.Dac.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingStyleAndNameingRules.Tests
 {
     [TestClass]
-    public class CameCaseNamingRuleTests
+    public class CameCaseNamingRuleTests : RuleTests
     {
-        
-
         [TestMethod]
         public void Correct_Naming_Is_Valid()
         {
-            var model = new TSqlModel(SqlServerVersion.Sql130, new TSqlModelOptions());
-            model.AddObjects(@"CREATE TABLE dbo.xamelCase (Column1 INT)");
+            var model = ModelFromSql(@"CREATE TABLE dbo.CamelCase (Column1 INT)");
 
-            var analysis = AnalysisTestHelper.CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
 
             var result = analysis.Analyze(model);
 
-            foreach (var sqlRuleProblem in result.Problems)
-            {
-                System.Diagnostics.Debug.Print(sqlRuleProblem.ErrorMessageString);
-            }
+            Assert.IsFalse(result.Problems.Any());
+        }
 
+        [TestMethod]
+        public void Incorrect_Naming_Is_InValid()
+        {
+            var model = ModelFromSql(@"CREATE TABLE dbo.pascalCase (Column1 INT)");
+
+            var analysis = CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
+
+            var result = analysis.Analyze(model);
+
+            Assert.IsTrue(result.Problems.Any());
         }
     }
 }
