@@ -43,6 +43,11 @@ namespace CodingStyleAndNameingRules.Tests
 
         protected void OutputProblems(IReadOnlyCollection<SqlRuleProblem> problems)
         {
+            if (!problems.Any())
+            {
+                System.Diagnostics.Debug.Print("No problems");
+            }
+
             foreach (var sqlRuleProblem in problems)
             {
                 System.Diagnostics.Debug.Print(sqlRuleProblem.ErrorMessageString);

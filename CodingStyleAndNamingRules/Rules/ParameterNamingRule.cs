@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.SqlServer.Dac.CodeAnalysis;
 using Microsoft.SqlServer.Dac.Model;
 
-namespace CodingStyleAndNamingRules
+namespace CodingStyleAndNamingRules.Rules
 {
     [ExportCodeAnalysisRule(RuleId,
                             RuleDisplayName,

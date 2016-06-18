@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
 
-namespace CodingStyleAndNamingRules
+namespace CodingStyleAndNamingRules.Rules
 {
     public class ParameterVisitor : TSqlFragmentVisitor
     {
@@ -21,6 +17,11 @@ namespace CodingStyleAndNamingRules
             // Remove @ from the variable name
             ValidateName(element);
         }
+        
+        public override void ExplicitVisit(ProcedureParameter s)
+        {
+            ValidateName(s);
+        }
 
         private void ValidateName(DeclareVariableElement element)
         {
@@ -30,11 +31,6 @@ namespace CodingStyleAndNamingRules
             {
                 DeclareVariableElements.Add(element);
             }
-        }
-
-        public override void ExplicitVisit(ProcedureParameter s)
-        {
-            ValidateName(s);
         }
     }
 }

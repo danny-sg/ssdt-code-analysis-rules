@@ -57,9 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CamelCaseRule.cs" />
-    <Compile Include="ParameterNamingRule.cs" />
-    <Compile Include="ParameterVisitor.cs" />
+    <Compile Include="Rules\ViewNameRule.cs" />
+    <Compile Include="Rules\TableCamelCaseRule.cs" />
+    <Compile Include="Rules\ParameterNamingRule.cs" />
+    <Compile Include="Rules\ParameterVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationHelpers.cs" />
   </ItemGroup>

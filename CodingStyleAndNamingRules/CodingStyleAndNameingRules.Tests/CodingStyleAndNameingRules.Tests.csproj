@@ -65,13 +65,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CameCaseNamingRuleTests.cs" />
+    <Compile Include="TableCameCaseNamingRuleTests.cs" />
     <Compile Include="FunctionTests.cs" />
     <Compile Include="ParameterNamingRuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CamelCaseTests.cs" />
     <Compile Include="RuleTests.cs" />
     <Compile Include="StoredProcedureTests.cs" />
+    <Compile Include="ViewNamingRuleTests.cs" />
     <Compile Include="ViewTests.cs" />
   </ItemGroup>
   <ItemGroup>

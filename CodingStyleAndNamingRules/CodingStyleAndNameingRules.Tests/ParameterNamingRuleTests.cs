@@ -1,5 +1,6 @@
 using System.Linq;
 using CodingStyleAndNamingRules;
+using CodingStyleAndNamingRules.Rules;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingStyleAndNameingRules.Tests

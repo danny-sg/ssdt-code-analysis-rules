@@ -1,11 +1,12 @@
 using System.Linq;
 using CodingStyleAndNamingRules;
+using CodingStyleAndNamingRules.Rules;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingStyleAndNameingRules.Tests
 {
     [TestClass]
-    public class CameCaseNamingRuleTests : RuleTests
+    public class TableCameCaseNamingRuleTests : RuleTests
     {
         [TestMethod]
         public void Correct_Naming_Is_Valid()
@@ -15,6 +16,8 @@ namespace CodingStyleAndNameingRules.Tests
             var analysis = CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
 
             var result = analysis.Analyze(model);
+
+            OutputProblems(result.Problems);
 
             Assert.IsFalse(result.Problems.Any());
         }
@@ -27,6 +30,8 @@ namespace CodingStyleAndNameingRules.Tests
             var analysis = CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
 
             var result = analysis.Analyze(model);
+
+            OutputProblems(result.Problems);
 
             Assert.IsTrue(result.Problems.Any());
         }
