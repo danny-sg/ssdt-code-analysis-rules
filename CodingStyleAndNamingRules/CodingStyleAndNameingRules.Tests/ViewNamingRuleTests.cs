@@ -23,7 +23,7 @@ namespace CodingStyleAndNameingRules.Tests
         }
 
         [TestMethod]
-        public void Incorrect_Naming_Is_InValid()
+        public void Incorrect_Naming_Is_Invalid()
         {
             var model = ModelFromSql(@"CREATE VIEW dbo.Incorrect AS SELECT 1");
 

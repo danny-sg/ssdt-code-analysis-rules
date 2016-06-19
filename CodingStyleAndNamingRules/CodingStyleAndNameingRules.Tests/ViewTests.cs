@@ -17,7 +17,7 @@ namespace CodingStyleAndNameingRules.Tests
         }
 
         [TestMethod]
-        public void Check_View_When_Valid()
+        public void Check_View_When_Valid_Compond_Name()
         {
             var value = "vViewName";
 
