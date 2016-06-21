@@ -26,7 +26,26 @@ namespace CodingStyleAndNamingRules.Rules
 
         public override IList<SqlRuleProblem> Analyze(SqlRuleExecutionContext ruleExecutionContext)
         {
-SG.
+            var problems = new List<SqlRuleProblem>();
+            var table = ruleExecutionContext.ModelElement;
+
+            if (table != null)
+            {
+                if (!IsCamelCase(table.Name))
+                {
+                    var displayServices = ruleExecutionContext.SchemaModel.DisplayServices;
+
+                    var formattedName = displayServices.GetElementName(table, ElementNameStyle.FullyQualifiedName);
+
+                    var problemDescription = string.Format(Message, formattedName);
+
+                    var problem = new SqlRuleProblem(problemDescription, table);
+
+                    problems.Add(problem);
+                }
+            }
+
+            return problems;
         }
 
         private static bool IsCamelCase(ObjectIdentifier id)
