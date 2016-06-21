@@ -67,6 +67,16 @@ namespace CodingStyleAndNameingRules.Tests
         }
 
         [TestMethod]
+        public void Check_CamelCase_When_Valid_With_Exception()
+        {
+            var value = "CamelCase_PnL";
+
+            var result = ValidationHelpers.IsCamelCase(value);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
         public void Check_CamelCase_When_With_Uppercase_Starts_With_Lowercase()
         {
             var value = "camelCase_TableName";

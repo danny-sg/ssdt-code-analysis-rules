@@ -8,7 +8,7 @@ namespace CodingStyleAndNamingRules
         {
             var regEx = new Regex(GetRegularExpression(""));
 
-            return regEx.IsMatch(value);
+            return regEx.IsMatch(FixSpecialAcronyms(value));
         }
 
         public static bool IsStoredProcedure(string value)
@@ -17,7 +17,7 @@ namespace CodingStyleAndNamingRules
 
             var regEx = new Regex(GetRegularExpression("(uSp|uSp_)"));
 
-            return regEx.IsMatch(value);
+            return regEx.IsMatch(FixSpecialAcronyms(value));
         }
 
         public static bool IsView(string value)
@@ -26,7 +26,7 @@ namespace CodingStyleAndNamingRules
 
             var regEx = new Regex(GetRegularExpression("[v]"));
 
-            return regEx.IsMatch(value);
+            return regEx.IsMatch(FixSpecialAcronyms(value));
         }
 
         public static bool IsFunction(string value)
@@ -35,12 +35,17 @@ namespace CodingStyleAndNamingRules
 
             var regEx = new Regex(GetRegularExpression("(uFn|uFn_)"));
 
-            return regEx.IsMatch(value);
+            return regEx.IsMatch(FixSpecialAcronyms(value));
         }
 
         private static string GetRegularExpression(string prefix)
         {
             return $@"\b^{prefix}[A-Z][a-z]*((_[A-Z]|[A-Z])[a-z]+)*\b";
+        }
+
+        private static string FixSpecialAcronyms(string value)
+        {
+            return value.Replace("PnL", "Pnl");
         }
     }
 }

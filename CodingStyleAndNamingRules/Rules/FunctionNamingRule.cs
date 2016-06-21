@@ -12,8 +12,8 @@ namespace CodingStyleAndNamingRules.Rules
         RuleScope = SqlRuleScope.Element)]
     public sealed class FunctionNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.FunctionNamingRule.SG004";
-        public const string RuleDisplayName = "SG.004";
+        public const string RuleId = "SGFT.Rules.TableNamingRule.SGFT.SG004";
+        public const string RuleDisplayName = "SGFT.004";
         public const string Message = "Function {0} is not prefixed uSp followed by CamelCase";
 
         public FunctionNamingRule()
@@ -27,20 +27,20 @@ namespace CodingStyleAndNamingRules.Rules
         public override IList<SqlRuleProblem> Analyze(SqlRuleExecutionContext ruleExecutionContext)
         {
             var problems = new List<SqlRuleProblem>();
-            var storedProcedure = ruleExecutionContext.ModelElement;
+            var context = ruleExecutionContext.ModelElement;
 
-            if (storedProcedure != null)
+            if (context != null)
             {
-                if (!IsValidName(storedProcedure.Name))
+                if (!IsValidName(context.Name))
                 {
                     var displayServices = ruleExecutionContext.SchemaModel.DisplayServices;
 
-                    var formattedName = displayServices.GetElementName(storedProcedure,
-                        ElementNameStyle.FullyQualifiedName);
+                    var formattedName = displayServices.GetElementName(context,
+                                                                       ElementNameStyle.FullyQualifiedName);
 
                     var problemDescription = string.Format(Message, formattedName);
 
-                    var problem = new SqlRuleProblem(problemDescription, storedProcedure);
+                    var problem = new SqlRuleProblem(problemDescription, context);
 
                     problems.Add(problem);
                 }

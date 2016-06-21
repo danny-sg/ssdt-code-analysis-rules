@@ -12,8 +12,8 @@ namespace CodingStyleAndNamingRules.Rules
                             RuleScope = SqlRuleScope.Element)]
     public sealed class ViewNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableNamingRule.SG002";
-        public const string RuleDisplayName = "SG.002";
+        public const string RuleId = "SGFT.Rules.TableNamingRule.SGFT.002";
+        public const string RuleDisplayName = "SGFT.002";
         public const string Message = "View {0} is not prefixed v followed by CamelCase";
 
         public ViewNamingRule()

@@ -12,8 +12,8 @@ namespace CodingStyleAndNamingRules.Rules
                             RuleScope = SqlRuleScope.Element)]
     public sealed class StoredProcedureNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.StoredProcedureNamingRule.SG003";
-        public const string RuleDisplayName = "SG.003";
+        public const string RuleId = "SGFT.Rules.TableNamingRule.SGFT.SG003";
+        public const string RuleDisplayName = "SGFT.003";
         public const string Message = "Stored Procedure {0} is not prefixed uSp followed by CamelCase";
 
         public StoredProcedureNamingRule()

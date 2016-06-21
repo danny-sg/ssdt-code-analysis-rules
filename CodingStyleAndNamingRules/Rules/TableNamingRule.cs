@@ -12,8 +12,8 @@ namespace CodingStyleAndNamingRules.Rules
                             RuleScope = SqlRuleScope.Element)]
     public sealed class TableNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableNamingRule.SG001";
-        public const string RuleDisplayName = "SG.001";
+        public const string RuleId = "SGFT.Rules.TableNamingRule.SGFT.001";
+        public const string RuleDisplayName = "SGFT.001";
         public const string Message = "Table {0} is not named as CamelCase";
 
         public TableNamingRule()
