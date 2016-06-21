@@ -10,13 +10,13 @@ namespace CodingStyleAndNamingRules.Rules
                             Description = "View name should be prefixed v then CamelCase",
                             Category = "Naming",
                             RuleScope = SqlRuleScope.Element)]
-    public sealed class ViewNameRule : SqlCodeAnalysisRule
+    public sealed class ViewNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableCamelCaseRule.SG002";
+        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableNamingRule.SG002";
         public const string RuleDisplayName = "SG.002";
         public const string Message = "View {0} is not prefixed v followed by CamelCase";
 
-        public ViewNameRule()
+        public ViewNamingRule()
         {
             SupportedElementTypes = new[]
             {

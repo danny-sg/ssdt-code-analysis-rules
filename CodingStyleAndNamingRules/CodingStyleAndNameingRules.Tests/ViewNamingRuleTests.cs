@@ -13,7 +13,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"CREATE VIEW dbo.vViewName AS SELECT 1");
 
-            var analysis = CreateCodeAnalysisService(model, ViewNameRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, ViewNamingRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -27,7 +27,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"CREATE VIEW dbo.Incorrect AS SELECT 1");
 
-            var analysis = CreateCodeAnalysisService(model, ViewNameRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, ViewNamingRule.RuleId);
 
             var result = analysis.Analyze(model);
 

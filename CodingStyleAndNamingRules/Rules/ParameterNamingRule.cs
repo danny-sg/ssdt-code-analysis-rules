@@ -11,7 +11,7 @@ namespace CodingStyleAndNamingRules.Rules
                             RuleScope = SqlRuleScope.Element)]
     public sealed class ParameterNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableCamelCaseRule.SG010";
+        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableNamingRule.SG010";
         public const string RuleDisplayName = "SG.010";
         public const string Message = "Parameter {0} in {1} is not named as CamelCase";
 

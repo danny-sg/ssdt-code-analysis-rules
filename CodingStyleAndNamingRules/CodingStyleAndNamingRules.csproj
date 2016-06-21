@@ -57,8 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Rules\ViewNameRule.cs" />
-    <Compile Include="Rules\TableCamelCaseRule.cs" />
+    <Compile Include="Rules\FunctionNamingRule.cs" />
+    <Compile Include="Rules\StoredProcedureNamingRule.cs" />
+    <Compile Include="Rules\ViewNamingRule.cs" />
+    <Compile Include="Rules\TableNamingRule.cs" />
     <Compile Include="Rules\ParameterNamingRule.cs" />
     <Compile Include="Rules\ParameterVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

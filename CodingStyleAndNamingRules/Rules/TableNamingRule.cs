@@ -10,13 +10,13 @@ namespace CodingStyleAndNamingRules.Rules
                             Description = "Table should be named with CamelCase",
                             Category = "Naming",
                             RuleScope = SqlRuleScope.Element)]
-    public sealed class TableCamelCaseRule : SqlCodeAnalysisRule
+    public sealed class TableNamingRule : SqlCodeAnalysisRule
     {
-        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableCamelCaseRule.SG001";
+        public const string RuleId = "SgRules.CodingStyleAndNamingRules.TableNamingRule.SG001";
         public const string RuleDisplayName = "SG.001";
         public const string Message = "Table {0} is not named as CamelCase";
 
-        public TableCamelCaseRule()
+        public TableNamingRule()
         {
             SupportedElementTypes = new[]
             {
@@ -26,26 +26,7 @@ namespace CodingStyleAndNamingRules.Rules
 
         public override IList<SqlRuleProblem> Analyze(SqlRuleExecutionContext ruleExecutionContext)
         {
-            var problems = new List<SqlRuleProblem>();
-            var table = ruleExecutionContext.ModelElement;
-
-            if (table != null)
-            {
-                if (!IsCamelCase(table.Name))
-                {
-                    var displayServices = ruleExecutionContext.SchemaModel.DisplayServices;
-
-                    var formattedName = displayServices.GetElementName(table, ElementNameStyle.FullyQualifiedName);
-
-                    var problemDescription = string.Format(Message, formattedName);
-
-                    var problem = new SqlRuleProblem(problemDescription, table);
-
-                    problems.Add(problem);
-                }
-            }
-
-            return problems;
+SG.
         }
 
         private static bool IsCamelCase(ObjectIdentifier id)

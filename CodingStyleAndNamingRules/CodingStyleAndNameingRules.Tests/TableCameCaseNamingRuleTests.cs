@@ -13,7 +13,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"CREATE TABLE dbo.CamelCase (Column1 INT)");
 
-            var analysis = CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, TableNamingRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -27,7 +27,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"CREATE TABLE dbo.pascalCase (Column1 INT)");
 
-            var analysis = CreateCodeAnalysisService(model, TableCamelCaseRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, TableNamingRule.RuleId);
 
             var result = analysis.Analyze(model);
 
