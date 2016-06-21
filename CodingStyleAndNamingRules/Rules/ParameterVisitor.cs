@@ -14,7 +14,6 @@ namespace CodingStyleAndNamingRules.Rules
 
         public override void ExplicitVisit(DeclareVariableElement element)
         {
-            // Remove @ from the variable name
             ValidateName(element);
         }
         
@@ -25,6 +24,7 @@ namespace CodingStyleAndNamingRules.Rules
 
         private void ValidateName(DeclareVariableElement element)
         {
+            // Remove @ from the variable name
             var parameterName = element.VariableName.Value.Remove(0, 1);
 
             if (!ValidationHelpers.IsCamelCase(parameterName))

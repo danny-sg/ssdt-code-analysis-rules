@@ -65,6 +65,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="KeywordCapitalizationRuleTests.cs" />
     <Compile Include="TableCameCaseNamingRuleTests.cs" />
     <Compile Include="FunctionTests.cs" />
     <Compile Include="ParameterNamingRuleTests.cs" />
