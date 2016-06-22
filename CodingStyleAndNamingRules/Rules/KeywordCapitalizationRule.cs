@@ -1,25 +1,23 @@
 ﻿using System.Collections.Generic;
 using Microsoft.SqlServer.Dac.CodeAnalysis;
 using Microsoft.SqlServer.Dac.Model;
+using Microsoft.SqlServer.Dac;
+using Microsoft.SqlServer.TransactSql.ScriptDom;
 
 namespace CodingStyleAndNamingRules.Rules
 {
-    using Microsoft.SqlServer.TransactSql.ScriptDom;
-
-    using TimeUnit = Microsoft.SqlServer.Dac.Model.TimeUnit;
-
     [ExportCodeAnalysisRule(RuleId,
                             RuleDisplayName,
                             Description = "Keywords should be in capitals",
                             Category = "Style",
                             RuleScope = SqlRuleScope.Element)]
-    public sealed class KeywordCapitalizationdRule : SqlCodeAnalysisRule
+    public sealed class KeywordCapitalizationRule : SqlCodeAnalysisRule
     {
         public const string RuleId = "SGFT.Rules.TableNamingRule.SGFT.020";
         public const string RuleDisplayName = "SGFT.020";
         public const string Message = "Keyword {0} should be in capitals";
 
-        public KeywordCapitalizationdRule()
+        public KeywordCapitalizationRule()
         {
             SupportedElementTypes = new[]
             {
@@ -37,15 +35,24 @@ namespace CodingStyleAndNamingRules.Rules
         public override IList<SqlRuleProblem> Analyze(SqlRuleExecutionContext ruleExecutionContext)
         {
             var problems = new List<SqlRuleProblem>();
-            var objectName = ruleExecutionContext.ModelElement;
+            var sqlObject = ruleExecutionContext.ModelElement;
 
-            foreach (var token in ruleExecutionContext.ScriptFragment.ScriptTokenStream)
+            var sqlObjectSourceInfo = sqlObject.GetSourceInformation();
+
+            if (ruleExecutionContext.ScriptFragment.ScriptTokenStream != null)
             {
-                if (IsKeyword(token) && token.Text.ToUpper() != token.Text)
+                foreach (var token in ruleExecutionContext.ScriptFragment.ScriptTokenStream)
                 {
-                    var problem = new SqlRuleProblem(string.Format(Message, token.Text), objectName);
-                    
-                    problems.Add(problem);
+                    if (IsKeyword(token) && token.Text?.ToUpper() != token.Text)
+                    {
+                        var problem = new SqlRuleProblem(string.Format(Message, token.Text), sqlObject);
+                        
+                        problem.SetSourceInformation(new SourceInformation(sqlObjectSourceInfo.SourceName, 
+                                                                           token.Line, 
+                                                                           token.Column));
+
+                        problems.Add(problem);
+                    }
                 }
             }
 

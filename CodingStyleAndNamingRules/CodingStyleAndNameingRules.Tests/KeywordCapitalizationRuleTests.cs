@@ -16,7 +16,7 @@ namespace CodingStyleAndNameingRules.Tests
             var model = ModelFromSql(@"CREATE VIEW dbo.vView AS
                                           SELECT 1");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -29,7 +29,7 @@ namespace CodingStyleAndNameingRules.Tests
             var model = ModelFromSql(@"create view dbo.vView AS
                                           Select 1");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -42,7 +42,7 @@ namespace CodingStyleAndNameingRules.Tests
             var model = ModelFromSql(@"CREATE PROC dbo.uSpProcedure @Param INT AS
                                           SELECT 1 WHERE @Param=@Param");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -57,7 +57,7 @@ namespace CodingStyleAndNameingRules.Tests
             var model = ModelFromSql(@"create proc dbo.uSpProcedure @Param INT AS
                                           Select 1 where @Param=@Param");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -71,7 +71,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"create table dbo.TestTable (a int)");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -85,7 +85,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"CREATE TABLE dbo.TestTable (a int)");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -99,7 +99,7 @@ namespace CodingStyleAndNameingRules.Tests
         {
             var model = ModelFromSql(@"CREATE TABLE dbo.TestTable (a INT)");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -124,7 +124,7 @@ namespace CodingStyleAndNameingRules.Tests
                     WHERE  ColumnB BETWEEN 100 AND 200
                 GO");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -149,7 +149,7 @@ namespace CodingStyleAndNameingRules.Tests
                     where  columnb between 100 and 200
                 go");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -170,7 +170,7 @@ namespace CodingStyleAndNameingRules.Tests
                                             RETURN @Test
                                         END");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
@@ -189,7 +189,7 @@ namespace CodingStyleAndNameingRules.Tests
                                             return @TEST
                                         end");
 
-            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationdRule.RuleId);
+            var analysis = CreateCodeAnalysisService(model, KeywordCapitalizationRule.RuleId);
 
             var result = analysis.Analyze(model);
 
