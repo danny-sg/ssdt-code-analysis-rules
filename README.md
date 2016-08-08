@@ -6,7 +6,7 @@
 
 ### Rules
 
-**SG.001 - Tables should be named with CamelCase**
+**SG.001 - Tables should be named with PascalCase**
 
 Correct
 - `TableName` 
@@ -18,7 +18,7 @@ Incorrect
 - `TableName_name`
 - `TABLE_NAME`
 
-**SG.002 - Views should be prefixed with v then CamelCase**
+**SG.002 - Views should be prefixed with v then PascalCase**
 
 Correct
 - `vViewName`
@@ -29,7 +29,7 @@ Incorrect
 - `ViewName`
 - `VIEW_NAME`
 
-**SG.003 - Stored Procedures should be prefixed with uSp then CamelCase**
+**SG.003 - Stored Procedures should be prefixed with uSp then PascalCase**
 
-**SG.004 - Functions should be prefixed with uFn then CamelCase**
+**SG.004 - Functions should be prefixed with uFn then PascalCase**
 
